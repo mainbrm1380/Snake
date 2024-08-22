@@ -9,8 +9,7 @@ Ideas for improvement:
 +	Adding two more inputs: x & y coordinates of the snake’s head.  
 +	Using RNNs instead of feed-forward NNs.  
 +	Figuring out a way add an input so the snake has some idea as to where the rest of his body parts are relative to its head.  
-+	Fixing how the snake figures out where the apple is relative to its position.  
-Conclusion:  
++	Fixing how the snake figures out where the apple is relative to its position.  Conclusion:  
 So I let the program run for 78 generations and the most number of apples eaten was 16, which was achieved in generation around 30, and it didn’t make any meaningful improvements passed that point on. Something to keep mind is that it reached 11 apples eaten by generation 7 or 6. Hence, this version of the implementation peaked really early on and it didn’t really make any noticeable improvements passed early generations.  
 **Version 1.1.0:**  
 In this version I fixed how the snake figures out where the apple is relative to its position. Previously, if the x coordinate of the apple was bigger than the x coordinate of the snake’s head, it would tell it that it’s to the right of it, and if it was smaller or equal, it would tell it that it’s to the left of it. The same thing applied for the y coordinate. So here the problem was when the x coordinates of the two were the same, the snake would think that the apple was to the left of it (for the y coordinates, the snake would think it’s below it). To fix this problem I added two new inputs to the initial topology. These two new inputs would tell the snake whether the apple was on the same line (had the same coordinates) or not. So in this version the structure of the initial population is the same as the previous version, the only difference is that two new inputs have been added.  
@@ -18,8 +17,8 @@ One thing to keep in mind is that in this version, the snake still ignores its a
 Ideas for improvement:
 + Adding two more inputs: x & y coordinates of the snake’s head.  
 + Using RNNs instead of feed-forward NNs.  
-+	Figuring out a way add an input so the snake has some idea as to where the rest of his body parts are relative to its head.  
-Conclusion:  
++	Figuring out a way add an input so the snake has some idea as to where the rest of his body parts are relative to its head. 
+ Conclusion:  
 This version dramatically improved the performance of the model. In this version, it had surpassed the max score of the last version by generation 9, and it kept improving on the score incrementally. Also, the population on average performed significantly better.
 The main thing seemed to be that it doesn’t learn to avoid colliding with its own body, which was predictable because none of the inputs help it to understand to avoid colliding with itself. Also, I don’t why the model keeps ignoring to turn anti-clockwise.  
 **Version 1.1.1:**  
