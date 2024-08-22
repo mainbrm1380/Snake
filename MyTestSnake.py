@@ -424,7 +424,7 @@ class Game:
                             apple.new_coordinates()
 
                 elif snake.snake_length <= 15:
-                    #rewarding the snake for being aliv (this is awarded until the snake has eaten 15 apples).
+                    #rewarding the snake for being alive (this is awarded until the snake has eaten 15 apples).
                     genome.fitness += 2/fps
                     timer += 1/fps
 
