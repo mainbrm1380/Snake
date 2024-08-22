@@ -1,7 +1,7 @@
 This is a snake game developed using pygame. The classic snake game had only one consumable, apple. I've added two more consumables; ice, and chili.
 The ice and chili each have different effects. The ice, once consumed, will slow down the snake, and the chili will increase snake's speed.
 The apple will also increase the snake's speed, but at a lower rate.
-**Implementing NEAT:**
+/n**Implementing NEAT:**
 **Version 1.0.0:**
 After many trials and errors, the snake finally understood to look for the apple. In this version, the initial topology of the population consists of 8 input nodes, 2 hidden nodes, and 3 output nodes. The inputs are as follows: whether the apple is above the snake, right of the snake, below the snake, or left of the snake, whether the snake is moving towards the apple, the Euclidean distance between the snake and the apple, the difference between the x coordinate of the snake’s head, and the difference between the y coordinate of the snake’s head. The values of the first five inputs are binary. The values of the next three inputs have been normalized to be between 0 and 1.
 From the very first generation, some of genomes seem to realize to look for the apple. By the fourth generation, almost each genome in the population knew to look for the apple. But something that has become apparent is that the genomes have opted to not activate one of the outputs, which is turning anti-clockwise. So the outputs are whether continuing in straight ahead, turning clockwise, and turning anti-clockwise. The genomes have started to ignore having the ability to turn anti-clockwise. I think this may be the result of how I have defined the how the snake figures out where the apple is relative to its position. 
